@@ -1,0 +1,66 @@
+<html>
+  <header>
+    <style>
+      input {
+        background-color: white;
+        float: inline-end;
+        border-radius: 5px;
+      }
+      .send_bttn {
+        margin-left: 262px;
+        float: unset;
+      }
+      form {
+        transform: scale(0.8);
+        width: 35%;
+        background-color: teal;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+      }
+      .history{
+        transform: scale(0.8);
+        width: 35%;
+        background-color: teal;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </header>
+  <body>
+    <div class="container">
+     Chat history: 
+
+      <div class="history">
+          <article>
+              <li>{{ messages.body}}</li><br>
+            </article>
+      </div>
+      <div style="position: absolute">
+        Let us send that special someone , a text .....
+      </div>
+
+      <form action="http://localhost:5000/sendmessage" method="POST">
+        <p>Your Name : <input type="text" id="sender" name="sender" /></p>
+        <p>
+          Receipient's name :<input type="text" id="receiver" name="receiver" />
+        </p>
+        <p>
+          Receipient's phone number :<input
+            type="tel"
+            name="target_number"
+            id="target_number"
+          />
+        </p>
+        <p>
+          text ( your sentiments ) :
+          <textarea type="text" id="the_message" name="the_message"></textarea>
+        </p>
+        <p><input type="submit" value="send" class="send_bttn" /></p>
+      </form>
+    </div>
+
+    <div class="container">{{result}}</div>
+  </body>
+</html>
